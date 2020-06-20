@@ -6,7 +6,7 @@ exports.run = async(client, msg, args, prefix) => {
     let noperm = new Discord.MessageEmbed()
         .setDescription("❎  당신은 관리자 권한이 없습니다.")
         .setColor("RED")
-    if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply(noperm)
+    if (!msg.member.hasPermission("ADMINISTRATOR"), !client.devs.includes(msg.author.id)) return msg.reply(noperm)
     let empty = new Discord.MessageEmbed()
         .setTitle("⚙️  현재 설정되어 있는 것들")
         .setColor("7289DA")
