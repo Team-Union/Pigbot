@@ -16,9 +16,10 @@ client.once("ready", () => {
       )
     )
     .catch(console.error);
-    const hook = new Discord.WebhookClient('715146150805766184', '9s3OlcwZxdrgIlbneJa_Zc1WSx4ICg6x5_oK5QwZu7xUsT75m7bW1d1b4CpvTZ5nGAH4');
-    hook.send("꿀꿀봇<:botTag:230105988211015680>  작동했다")
+    const hook = new Discord.WebhookClient('724099546203815996', 'A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt');
+    hook.send(`꿀꿀봇 작동했다.\n \n 평균 핑이 ${client.ws.ping}ms 보인다.`)
 });
+//https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
 
 client.commands = new Discord.Collection()
