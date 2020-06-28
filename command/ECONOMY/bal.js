@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args) => {
   let embed = new MessageEmbed()
     .setTitle(`${message.author.username}님의 지갑`)
     .addField("돈:", `${money.amount}`)
-    .addField("코인:", `${User[message.author.id].money}`)
     .setColor("GREEN")
     .setFooter("Requested By:", message.author.displayAvatarURL());
   message.channel.send(embed);
