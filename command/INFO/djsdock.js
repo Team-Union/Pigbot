@@ -1,12 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 exports.run = async (client, msg, args, prefix) => {
-  /**
-   * 이것은 번외로 Discord.js 문서 api로 크롤링하여 임베드로 표현한 코드입니다.
-   * Discord.js 라이브러리 읽는것이 익숙하지 않을 경우 이것을 사용하여 참고하시면 좋을거 같습니다 (실제로 저도 많이 사용하고 있습니다 ㅎㅎ)
-   * 그러나 라이브러리를 읽는것이 익숙해지는 것을 권장합니다!
-   * API URL: https://djsdocs.sorta.moe
-   */
   if (!args[0]) return msg.reply("❎ 쿼리를 입력해주세요."); // argument가 없다면 쿼리를 입력해달라고 전해줍시다.
   let query = encodeURI(args.join(" ")); // 쿼리를 선언하였고 검색에 사용할 것이오니 인코드를 해줍시다.
   fetch(`https://djsdocs.sorta.moe/v1/main/stable/embed?q=${query}`).then(a =>

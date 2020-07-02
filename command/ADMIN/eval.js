@@ -25,33 +25,6 @@ exports.run = async (client, msg, args, prefix) => {
         )
         .addField("📤 **Output**", `\`\`\`js\n${code}\`\`\``, false);
       msg.reply(evaled);
-      /**
-         * 이제 튜토야 이블 msg를 실행 시켜주면 아래와 같은 결과 값이 나와요!
-         * Message {
-            channel: [TextChannel],
-            deleted: false,
-            id: '717685629969891369',
-            type: 'DEFAULT',
-            content: '튜토야 이블 msg',
-            author: [User],
-            pinned: false,
-            tts: false,
-            nonce: '717685619970539520',
-            system: false,
-            embeds: [],
-            attachments: Collection [Map] {},
-            createdTimestamp: 1591179988139,
-            editedTimestamp: null,
-            reactions: [ReactionManager],
-            mentions: [MessageMentions],
-            webhookID: null,
-            application: null,
-            activity: null,
-            _edits: [],
-            flags: [MessageFlags],
-            reference: null
-          }
-         */
     })
     .catch(e => {
       // 해당 코드에서 에러가 발생하면 캐치를 하고 그 에러 값을 e로 선언해줍시다.
@@ -67,6 +40,6 @@ exports.config = {
   name: "코드",
   aliases: ["eval"],
   category: ["ADMIN"],
-  des: ["코드 실행기"],
+  des: ["코드 실행합니다."],
   use: ["ㄲ 코드 <코드>"]
 };
