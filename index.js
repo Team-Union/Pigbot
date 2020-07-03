@@ -5,6 +5,21 @@ const db = require("quick.db");
 const reload = require("self-reload-json")
 const fs = require('fs')
 const config = require("./config.json")
+const { KoreanbotsClient } = require("koreanbots")
+
+
+const client = new KoreanbotsClient({
+    koreanbotsToken: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjg1NzAxNjUzOTg3MzM3MiIsImlhdCI6MTU5Mzc1NDcwMiwiZXhwIjoxNjI1MzEyMzAyfQ.eZGTMfy2Gej6I4Gxakh0UiexMO9YYS3682oZ68cNj09nJ7z5EBh2mCvBmXVBKFeUbXwxb6dk6e29wpW6AVZ4z4BjaW2VcAXqYmqzVpLyNxbwxp4d6yAkA0NjNDcYb_PA6mbaiTy8INqdGJV7fmtBk9fj8DpcRjuVrUxkjs_QWhs",
+    koreanbotsOptions: {
+        interval: 600000 //10분마다 서버 수를 업데이트합니다. (기본값 30분)
+    }
+})
+
+
+process.on("SIGINT", () => {
+    client.destroy()
+    process.exit()
+})
 
 
 client.once("ready", () => {
