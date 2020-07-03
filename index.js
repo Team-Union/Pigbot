@@ -6,6 +6,7 @@ const reload = require("self-reload-json")
 const fs = require('fs')
 const config = require("./config.json")
 
+
 client.once("ready", () => {
   console.log("봇작동중...");
   client.user

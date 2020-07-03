@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const moment = require("moment-timezone");
+
+
 exports.run = async (client, msg, args, prefix) => {
   fetch("http://rank.search.naver.com/rank.js").then(r =>
     r.json().then(r => {

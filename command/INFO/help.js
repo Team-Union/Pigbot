@@ -9,15 +9,9 @@ exports.run = async (client, msg, args, prefix) => {
       )
       .setColor("7289DA")
       .setFooter(
-        `${prefix}도움말 <명령어> 를 통하여 해당 명령어를 자세히 확인해보세요.`
+        `<:discord:314003252830011395>[서포터 서버](https://discord.gg/Ggd6CqY) **|** <:verified:585790522677919749>[추천하기(Korean bots)](https://koreanbots.dev/bots/702857016539873372) **|** <:verified:585790522677919749>[추천하기(Discord bots)](https://discord.bots.gg/bots/702857016539873372)`
       );
     for (const category of categorys) {
-      // 위에서 선언한 것을 for문으로 category로 선언하였습니다. (반복문)
-      /**
-       * 위에 for문을 잠시 설명해드리자면
-       * categorys가 있는 만큼 반복을 하여
-       * categorys중에 하나를 category로 선언하여 아래의 코드를 작성한 것입니다.
-       */
       Commands.addField(
         category,
         `> **\`${client.commands
@@ -25,24 +19,6 @@ exports.run = async (client, msg, args, prefix) => {
           .keyArray()
           .join("`, `")}\`**`
       );
-      /**
-       * 소제목에는 카테고리 이름을 넣고
-       * 소 설명에는 이전에 client.commands를 컬랙션으로 지정한 것들을 불러와 필터를 시켜줍니다.
-       * el로 선언하여 el이 어떤식으로 되어있냐면
-       * 이전에 명령어들에게 exports를 사용하여 모듈화 하였는데 그것들을 불러오게 됩니다.
-       * 여러가지 있는데 그중에 하나만 뜯어서 보여드렸습니다.
-       * {
-       *   run: [AsyncFunction],
-       *   config: {
-       *      name: "asd",
-       *      aliases: ["asd1", "asd2", "123"],
-       *      category: ["example"],
-       *      des: ["config 설명"],
-       *      use: ["튜토야 도움 <명령어>"]
-       *   }
-       * }
-       * 그러고 이제 config.category가 const로 선언한 category와 맞는지 확인 후 Array화 시킨 후 안에 있는 명령어들을 불러온 것입니다.
-       */
     }
     msg.reply(Commands);
   } else {
