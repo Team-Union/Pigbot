@@ -9,7 +9,7 @@ exports.run = async (client, msg, args, prefix) => {
       )
       .setColor("7289DA")
       .setFooter(
-        "<:discord:314003252830011395>[서포터 서버](https://discord.gg/Ggd6CqY) **|** <:verified:585790522677919749>[추천하기(Korean bots)](https://koreanbots.dev/bots/702857016539873372) **|** <:verified:585790522677919749>[추천하기(Discord bots)](https://discord.bots.gg/bots/702857016539873372)"
+        "ㄲ 도움말 (명령어) 를 하여 더 자세히 알아보세요."
       );
     for (const category of categorys) {
       Commands.addField(
