@@ -5,9 +5,9 @@ const serverCount = 100 // 서버 수
 const userID = '552103947662524416'
 
 fetch(BASEURL + '/bots/servers', { method: 'POST', headers: { token, 'Content-Type': 'application/json' }, body: JSON.stringify({ servers: serverCount }) })
-	.then(r=> console.log(r.json())
-	.catch(e=> console.error(e))>
+.then(r=> console.log(r.json())
+.catch(e=> console.error(e))>
 
 fetch(BASEURL + '/bots/voted/' + userID, { headers: { token } })
-	.then(r=> r.json()).then(r=> console.log(r))
-	.catch(e=> console.error(e))>
+.then(r=> r.json()).then(r=> console.log(r))
+.catch(e=> console.error(e))>
