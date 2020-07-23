@@ -11,8 +11,8 @@ let update = count => Bot.update(count)
     .then(res => console.log("서버 수를 정상적으로 업데이트하였습니다!\n반환된 정보:" + JSON.stringify(res)))
     .catch(console.error)
 
-bot.on("warn", console.warn);
-bot.on("error", console.error);
+client.on("warn", console.warn);
+client.on("error", console.error);
 client.once("ready", () => {
   console.log("봇작동중...");
   client.user
