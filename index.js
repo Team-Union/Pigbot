@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Eco = require("quick.eco");
 const db = require("quick.db");
 const reload = require("self-reload-json")
 const fs = require('fs')
