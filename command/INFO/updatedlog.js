@@ -1,21 +1,24 @@
 const Discord = require("discord.js")
 exports.run = async (client, msg, args, prefix) => {
     let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
-        .setTitle("여기는 대표 타이틀!")
-        .setDescription("여기는 대표 설명!")
-        .setColor("RED")
-        .setFooter("여기는 말머리?")
-        .setThumbnail("http://blogfiles.naver.net/20151023_23/shin_0305_1445573936921jrPRT_JPEG/%BD%E6%B3%D7%C0%CF%BF%B9%BD%C3.jpg")
-        .setImage("http://blogfiles.naver.net/MjAxODA4MjNfMjQ0/MDAxNTM1MDE5ODk1Njc3.c5p_E9tLPEXGnXPAkpOuhpEOm7VLqopETMTfJ9C8CWYg.6FCsIDtjWnd19lSzmw_z1oHm9E7fd39s1RmRPeBOF3Ag.JPEG.dlawldbs20/VD-poem-20150915-01.jpg")
+        .setTitle("업데이트 기록")
+        .setDescription("V2.2.1 업데이트 안내")
+        .setColor("BLUE")
+        .setFooter("Updated V2.2.1")
+        .setThumbnail("https://media.discordapp.net/attachments/729175908849549363/735719327596150864/file_1.png?width=442&height=442")
+//        .setImage("")
         .setTimestamp()
-        .addField("여기는 소제목", "여기는 소설명(??)")
-    msg.reply(embed)
+        .addField("네이버 검색 순위 추가", "사용하시는 분들은 쓰세요.")
+        .addField("업데이트 노트 추가", "업데이트 노트를 확인이 가능합니다.")
+        .addField("Discord.JS API 추가", "사용하시는 분들은 쓰세요")
+        .addField("뮤트 명령어 오류 고치는중..", "고칠시 바로 알립니다.")
+    msg.channel.send(embed)
 }
 
 exports.config = {
-    name: '임베드',
-    aliases: ['embed', 'dlaqpem'],
-    category: ['bot'],
-    des: ['임베드에 대한 설명'],
-    use: ['ㄲ 임베드']
+    name: '업데이트 노트',
+    aliases: ['updatelog', '변경사항', "업데이트 기록"],
+    category: ['INFO'],
+    des: ['업데이트에 대한 설명'],
+    use: ['ㄲ 기록']
 }
