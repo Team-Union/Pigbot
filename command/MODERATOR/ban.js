@@ -19,7 +19,7 @@ exports.run = async (client, msg, args, prefix) => {
 
 exports.config = {
   name: "밴",
-  aliases: ["벤"],
+  aliases: ["벤", "차단"],
   category: ["MODERATOR"],
   des: ["유저를 해당 서버에서 차단 시킵니다."],
   use: ["ㄲ 밴 <유저 맨션>"]

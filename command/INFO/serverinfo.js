@@ -1,5 +1,7 @@
 const db = require("quick.db");
 const Discord = require("discord.js");
+
+
 module.exports.run = async (bot, message, args) => {
   let overall = db.fetch(`messages_${message.guild.id}`);
   let today = db.fetch(`message_today_${message.guild.id}`);

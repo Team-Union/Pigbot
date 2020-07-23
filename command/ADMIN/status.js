@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 };
 exports.config = {
   name: "시스템정보",
-  aliases: ["help", "bothelp"],
+  aliases: ["system", "osinfo"],
   category: ["ADMIN"],
   des: ["도움말에 대한 설명"],
   use: ["ㄲ 시스템정보"]

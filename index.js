@@ -6,12 +6,14 @@ const reload = require("self-reload-json")
 const fs = require('fs')
 const config = require("./config.json")
 const { MyBot } = require("koreanbots")
-const Bot = new MyBot("Koreanbots 토큰")
+const Bot = new MyBot("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjg1NzAxNjUzOTg3MzM3MiIsImlhdCI6MTU5Mzc1NDcwMiwiZXhwIjoxNjI1MzEyMzAyfQ.eZGTMfy2Gej6I4Gxakh0UiexMO9YYS3682oZ68cNj09nJ7z5EBh2mCvBmXVBKFeUbXwxb6dk6e29wpW6AVZ4z4BjaW2VcAXqYmqzVpLyNxbwxp4d6yAkA0NjNDcYb_PA6mbaiTy8INqdGJV7fmtBk9fj8DpcRjuVrUxkjs_QWhs")
 
 let update = count => Bot.update(count) 
     .then(res => console.log("서버 수를 정상적으로 업데이트하였습니다!\n반환된 정보:" + JSON.stringify(res)))
     .catch(console.error)
 
+bot.on("warn", console.warn);
+bot.on("error", console.error);
 client.once("ready", () => {
   console.log("봇작동중...");
   client.user
@@ -31,7 +33,7 @@ client.once("ready", () => {
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.devs = ['552103947662524416', "1234567890"]
-client.category = ['ADMIN', 'ECONOMY', 'MODERATOR', 'INFO']
+client.category = ['ADMIN', 'MODERATOR', 'INFO']
 fs.readdirSync("./command/").forEach(dir => {
     const Filter = fs.readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"));
     Filter.forEach(file => {
