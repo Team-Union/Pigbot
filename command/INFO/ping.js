@@ -1,5 +1,14 @@
+const Discord = require("discord.js")
 exports.run = async (client, msg, args, prefix) => {
-    msg.channel.send(`내 핑은 ${client.ws.ping}ms 라네?`)
+    let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
+        .setTitle("봇상태")
+        .setDescription("봇 상태를 알려드립니다")
+        .setColor("RED")
+        .setFooter("Powered by 꿀꿀봇")
+        .setTimestamp()
+        .addField("웹소겟 지연시간", `${client.ws.ping}ms`)
+        .addField("봇상태: ", `온라인`)
+    msg.reply(embed)
 }
 exports.config = {
     name: '핑',
