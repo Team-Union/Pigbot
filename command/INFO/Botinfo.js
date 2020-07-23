@@ -1,30 +1,21 @@
 const Discord = require("discord.js")
 
 
-module.exports.run = async (bot, message, args) => {
-
-    function duration(ms) {
-        const sec = Math.floor((ms / 1000) % 60).toString()
-        const min = Math.floor((ms / (1000 * 60)) % 60).toString()
-        const hrs = Math.floor((ms / (1000 * 60 * 60)) % 60).toString()
-        const days = Math.floor((ms / (1000 * 60 * 60 * 24)) % 60).toString()
-        return `${days.padStart(1, '0')} days, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds, `
-    } 
-  try {
-
+module.exports.run = async (bot, msg, message, args) => {
     let embed = new Discord.MessageEmbed()
     .setThumbnail(bot.user.displayAvatarURL())
     .setTitle("봇 정보")
+    .setDescription("꿀꿀봇은 <:nodejs:735724721081155594> 와 :heart: 로 만든 봇입니다.")
     .setFooter("Requested By:", message.author.displayAvatarURL())
+    .addField("<:nodejs:735724721081155594>버전", "V12.16.2")
+    .addField("<:djs:735727746294087691>버전", "V12.2.0")
     .addField("봇 제작 날짜 :" , `bot.user.createdAt`)
-    .addField("봇 제작자 :", `안꿀꿀`)
+    .addField("<:Profile:735729140753236038> 봇 제작자 :", `안꿀꿀`)
     .addField("봇 핑 :", `${client.ws.ping}ms`)
     .addField("봇 업타임 :", `${duration(bot.uptime)}`);
-    message.channel.send(embed)
-    } catch(e) {
-      console.log(e)
-    }
+    msg.channel.send(embed)
 }
+
 
 exports.config = {
     name: '봇정보',
