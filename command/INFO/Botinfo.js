@@ -3,7 +3,6 @@ const Discord = require("discord.js")
 
 module.exports.run = async (bot, msg, message, args) => {
     let embed = new Discord.MessageEmbed()
-    .setThumbnail(bot.user.displayAvatarURL())
     .setTitle("봇 정보")
     .setDescription("꿀꿀봇은 <:nodejs:735724721081155594> 와 :heart: 로 만든 봇입니다.")
     .setFooter("Requested By:", message.author.displayAvatarURL())
