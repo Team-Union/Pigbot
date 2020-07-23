@@ -5,7 +5,7 @@ module.exports.run = async (bot, msg, message, args) => {
     let embed = new Discord.MessageEmbed()
     .setTitle("봇 정보")
     .setDescription("꿀꿀봇은 <:nodejs:735724721081155594> 와 :heart: 로 만든 봇입니다.")
-    .setFooter("Requested By:", message.author.displayAvatarURL())
+    .setFooter("Powered by 꿀꿀봇")
     .addField("<:nodejs:735724721081155594>버전", "V12.16.2")
     .addField("<:djs:735727746294087691>버전", "V12.2.0")
     .addField("봇 제작 날짜 :" , `bot.user.createdAt`)
@@ -18,7 +18,7 @@ module.exports.run = async (bot, msg, message, args) => {
 
 exports.config = {
     name: '봇정보',
-    aliases: ['embed', 'dlaqpem'],
+    aliases: ['botinfo', '봇정보'],
     category: ['INFO'],
     des: ['봇정보에 대한 설명'],
     use: ['ㄲ 봇정보']
