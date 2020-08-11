@@ -1,9 +1,9 @@
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    name: "notice",
+    name: "공지",
     aliases: ["공지", "공지사항", "ㅜㅐ샻ㄷ", "rhdwl", "rhdwltkgkd"],
-    category: "owner",
+    category: "ADMIN",
     run: async (client, message, args) => {
         if (!args.join(" ")) return message.channel.send("내용을 써 주세요!")
 
