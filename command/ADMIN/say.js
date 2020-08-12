@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
                         let gc
 
                         g.channels.cache.forEach(c => {
-                            if (c.name.includes(client.user.username) || c.name.includes("봇공지") || c.name.includes("봇-공지") || c.name.includes("봇_공지")) gc = c.id
+                            if (c.name.includes(client.user.username) || c.name.includes("봇공지") || c.name.includes("봇-공지") || c.name.includes("봇_공지") || c.name.includes("꿀꿀봇_공지사항")) gc = c.id
                         })
 
                         const Ch = client.channels.cache.get(gc)
