@@ -20,13 +20,9 @@ client.on("ready", () => {
     const activity = [`${client.guilds.cache.size}개의 서버`, `${client.users.cache.filter(e => !e.bot).size}명의 유저`, `${client.guilds.cache.size} guilds`, `${client.users.cache.filter(e => !e.bot).size} users`]
 
     setInterval(() => client.user.setActivity(activity[Math.floor(Math.random() * activity.length)]), 10000)
-
-    ops.MyBot.update(client.guilds.cache.size).then(e => console.log(e.code)).catch(e => console.error(e.message))
-
-    client.musicManager = new(require("./structures/MusicManager"))(client)
 })
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
-
+client.categories = readdirSync("./command/")
 readdirSync("./command/").forEach(dir => {
     readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js")).forEach(file => {
         let pull = require(`./command/${dir}/${file}`)
@@ -40,7 +36,6 @@ readdirSync("./command/").forEach(dir => {
     })
 })
 
-client.categories = readdirSync("./command/")
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.devs = ['552103947662524416', "1234567890"]
