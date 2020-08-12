@@ -13,22 +13,34 @@ let update = count => Bot.update(count)
 
 client.on("warn", console.warn);
 client.on("error", console.error);
-client.once("ready", () => {
-  console.log("봇작동중...");
-  client.user
-    .setActivity(`ㄲ 도움말 확인`, { type: "PLAYING" })
-    .then(presence =>
-      console.log(
-        `Activity set to ${presence.game ? presence.game.name : "none"}`
-      )
-    )
-    .catch(console.error);
-    update(client.guilds.size) // 준비 상태를 시작할 때, 최초로 업데이트합니다.
-    setInterval(() => update(client.guilds.cache.size), 600000) // 10분마다 서버 수를 업데이트합니다.
-});
+
+client.on("ready", () => {
+    console.log(`${table.toString()}\nLogin ${client.user.username}\n----------------------------`)
+
+    const activity = [`${client.guilds.cache.size}개의 서버`, `${client.users.cache.filter(e => !e.bot).size}명의 유저`, `${client.guilds.cache.size} guilds`, `${client.users.cache.filter(e => !e.bot).size} users`]
+
+    setInterval(() => client.user.setActivity(activity[Math.floor(Math.random() * activity.length)]), 10000)
+
+    ops.MyBot.update(client.guilds.cache.size).then(e => console.log(e.code)).catch(e => console.error(e.message))
+
+    client.musicManager = new(require("./structures/MusicManager"))(client)
+})
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
+readdirSync("./command/").forEach(dir => {
+    readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js")).forEach(file => {
+        let pull = require(`./command/${dir}/${file}`)
 
+        if (pull.name) {
+            client.commands.set(pull.name, pull)
+            table.addRow(file, ":white_check_mark:")
+        } else table.addRow(file, ":x:")
+
+        if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(a => client.aliases.set(a, pull.name))
+    })
+})
+
+client.categories = readdirSync("./command/")
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.devs = ['552103947662524416', "1234567890"]
