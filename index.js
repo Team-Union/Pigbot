@@ -22,19 +22,6 @@ client.on("ready", () => {
     setInterval(() => client.user.setActivity(activity[Math.floor(Math.random() * activity.length)]), 10000)
 })
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
-client.categories = readdirSync("./command/")
-readdirSync("./command/").forEach(dir => {
-    readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js")).forEach(file => {
-        let pull = require(`./command/${dir}/${file}`)
-
-        if (pull.name) {
-            client.commands.set(pull.name, pull)
-            table.addRow(file, ":white_check_mark:")
-        } else table.addRow(file, ":x:")
-
-        if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(a => client.aliases.set(a, pull.name))
-    })
-})
 
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
