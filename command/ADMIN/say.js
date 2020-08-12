@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports.run = async (bot, message, args) => {
         if (!args.join(" ")) return message.channel.send("내용을 써 주세요!")
 
-        message.channel.send(new MessageEmbed().setTitle(`${client.user.username} 공지사항`).setDescription(`\`\`\`\n${args.join(" ")}\n\`\`\``).setColor("RANDOM")).then(async th => {
+        message.channel.send(new MessageEmbed().setTitle(`꿀꿀봇 공지사항`).setDescription(`\`\`\`\n${args.join(" ")}\n\`\`\``).setColor("RANDOM")).then(async th => {
             await th.react("⭕")
             await th.react("❌")
             
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
                         try {
                             if (!Ch.permissionsFor(g.me).has("SEND_MESSAGES")) ment = `${g.name}: 발신 실패 (메시지 발신 불가)\n`
                             else if (!Ch.permissionsFor(g.me).has("EMBED_LINKS")) {
-                                Ch.send(`**${client.user.username} 공지사항**\n\n${args.join(" ")}\n(${message.author.tag})`)
+                                Ch.send(`**꿀꿀봇 공지사항**\n\n${args.join(" ")}\n(${message.author.tag})`)
                                 ment = `${g.name}: 임베드 발신 실패 (발신 완료)\n`
                             }
                             else Ch.send(new MessageEmbed().setTitle(`꿀꿀봇 공지사항`).setThumbnail(client.user.displayAvatarURL()).setDescription(args.join(" ")).setColor(0x00ff00).setFooter(message.author.tag, message.author.displayAvatarURL()).setTimestamp())
