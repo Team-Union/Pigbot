@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-exports.run = async (client, msg, args, prefix) => {
+exports.run = async (client, message, args, prefix) => {
     if (!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Não tenho permissão de gerenciar canais')
     if (message.guild.channels.find(ch => ch.name.includes(message.author.id))) return message.reply('já existe um canal criado pra você 🐒')
     
