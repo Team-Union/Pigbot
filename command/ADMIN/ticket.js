@@ -30,7 +30,10 @@ exports.run = async (client, msg, args, prefix) => {
             .catch(err => message.channel.send('Erro: ' + err.message)), 1000 * 60) 
 }
 
-exports.help = {
-    name: 'ticket',
-    aliases: ['tickets']
-}
+exports.config = {
+  name: "티켓",
+  aliases: ["티켓", "티켓 생성"],
+  category: ["ADMIN"],
+  des: ["티켓을 만듬합니다."],
+  use: ["ㄲ 티켓"]
+};
