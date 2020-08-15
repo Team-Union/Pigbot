@@ -16,9 +16,9 @@ exports.run = async (client, msg, args, prefix) => {
 }
 
 exports.config = {
-    name: '임베드',
-    aliases: ['embed', 'dlaqpem'],
-    category: ['bot'],
-    des: ['임베드에 대한 설명'],
-    use: ['튜토야 임베드']
+    name: '봇정보',
+    aliases: ['봇정보', 'qhtwjdqh'],
+    category: ['INFO'],
+    des: ['봇정보에 대한 설명'],
+    use: ['ㄲ 봇정보']
 }
