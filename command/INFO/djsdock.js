@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
+
 exports.run = async (client, msg, args, prefix) => {
   if (!args[0]) return msg.reply("❎ 쿼리를 입력해주세요."); // argument가 없다면 쿼리를 입력해달라고 전해줍시다.
   let query = encodeURI(args.join(" ")); // 쿼리를 선언하였고 검색에 사용할 것이오니 인코드를 해줍시다.
@@ -18,6 +19,6 @@ exports.config = {
   name: "docs",
   aliases: ["djsdocs"],
   category: ["INFO"],
-  des: ["Discord.js 문서 api를 활용한 명령어 입니다"],
+  des: ["Discord.js 사용하는 유저에게 유익한 문서입니다."],
   use: ["ㄲ docs <query>"]
 };

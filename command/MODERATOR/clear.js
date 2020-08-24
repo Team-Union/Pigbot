@@ -9,7 +9,7 @@ exports.run = async (client, msg, args, prefix) => {
 
   msg.channel
     .bulkDelete(args[0])
-    .then(msg.reply(`성공적으로 ${args[0]}개 만큼 메세지를 삭제하였습니다!`));
+    .then(msg.reply(`성공적으로 ${args[0]}개 만큼 메세지를 삭제하였습니다!\n만약 안지워지면 꿀꿀봇 권한중에 **메세지 관리** 권한이 없나봐요.`));
 };
 
 exports.config = {

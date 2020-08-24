@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
 };
 exports.config = {
   name: "유저정보",
-  aliases: ["vld", "userinfo"],
+  aliases: ["유정", "userinfo"],
   category: ["INFO"],
   des: ["유저정보를 봅니다"],
   use: ["ㄲ 유저정보"]

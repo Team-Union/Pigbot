@@ -11,7 +11,7 @@ module.exports = {
     if (message.author.id != "552103947662524416")
       return message.channel.send("꿀꿀봇 관리자가 아닙니다");
 
-    if (!args[0]) return message.channel.send("예시:ㄲ 새로고침 [명령어.js]");
+    if (!args[0]) return message.channel.send("예시:ㄲ 새로고침 [명령어]");
     let c = message.channel.send("리로드중......");
 
     let commandName = args[0].toLowerCase();

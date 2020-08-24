@@ -9,7 +9,7 @@ exports.run = async (client, msg, args, prefix) => {
       )
       .setColor("7289DA")
       .setFooter(
-        "ㄲ 도움말 (명령어) 를 하여 더 자세히 알아보세요."
+        "ㄲ 도움말 <명령어> 를 하여 더 자세히 알아보세요."
       );
     for (const category of categorys) {
       Commands.addField(
