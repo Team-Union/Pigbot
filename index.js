@@ -7,7 +7,7 @@ client.on("warn", console.warn);
 client.on("error", console.error);
 
 client.on("ready", () => {
-    console.log(`----------------------------\n로그인 완료 ${client.user.username}\n----------------------------`)
+    console.log(`----------------------------\n \n로그인 완료 ${client.user.username}\n \n----------------------------`)
 })
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
