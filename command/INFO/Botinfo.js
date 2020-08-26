@@ -1,8 +1,8 @@
 const Discord = require("discord.js")
 
 
-module.exports.run = async (bot, msg, message, args) => {
-    let embed = new Discord.MessageEmbed()
+exports.run = async (client, msg, args, prefix) => {
+    let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
     .setTitle("봇 정보")
     .setDescription("꿀꿀봇은 <:nodejs:735724721081155594> 와 :heart: 로 만든 봇입니다.")
     .setFooter("Powered by 꿀꿀봇")

@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 
-module.exports.run = async (bot, msg, message, args) => {
-    let embed = new Discord.MessageEmbed()
+exports.run = async (client, msg, args, prefix) => {
+    let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
       .setColor("BLUE")
       .setTitle("서버정보")
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
