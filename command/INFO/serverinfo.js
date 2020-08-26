@@ -5,7 +5,6 @@ exports.run = async (client, msg, args, prefix) => {
     let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
       .setColor("BLUE")
       .setTitle("서버정보")
-      .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .addField("**서버이름:**", `${message.guild.name}`, true)
       .addField("**서버 주인:**", `${message.guild.owner}`, true)
       .addField("**멤버수:**", `${message.guild.memberCount}`, true)
