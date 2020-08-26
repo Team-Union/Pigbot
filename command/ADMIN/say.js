@@ -70,7 +70,6 @@ module.exports.run = async (bot, message, args) => {
             }
             p.reactions.removeAll();
         });
-    }
 }
 
 exports.config = {
