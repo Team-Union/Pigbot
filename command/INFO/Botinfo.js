@@ -11,7 +11,6 @@ exports.run = async (client, msg, args, prefix) => {
     .addField("봇 제작 날짜 :" , `bot.user.createdAt`)
     .addField("<:Profile:735729140753236038> 봇 제작자 :", `안꿀꿀`)
     .addField("봇 핑 :", `${client.ws.ping}ms`)
-    .addField("봇 업타임 :", `${duration(bot.uptime)}`);
     msg.channel.send(embed)
 }
 
