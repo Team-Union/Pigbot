@@ -7,7 +7,14 @@ client.on("warn", console.warn);
 client.on("error", console.error);
 
 client.on("ready", () => {
-    console.log(`----------------------------\n \n로그인 완료 ${client.user.username}\n \n----------------------------`)
+    console.log(`----------------------------\n \n${client.user.username}로 로그인 하였습니다.\n \n현제 상태 : 온라인\n \n----------------------------`)
+  client.user
+    .setActivity(`${prefix} 도움말 확인`, { type: "PLAYING" })
+    .then(presence =>
+      console.log(
+        `상태를 변경했습니다.`
+      )
+    )
 })
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
