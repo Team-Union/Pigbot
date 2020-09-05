@@ -18,10 +18,31 @@ client.on("ready", () => {
 })
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
+const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
+
+readdirSync("./command").forEach(dir => {
+    for (let file of readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"))) {
+        let pull = require(`./command/${dir}/${file}`);
+
+        if (pull.name) {
+            client.commands.set(pull.name, pull);
+            table.addRow(file, "✅");
+        } else {
+            table.addRow(file, "❌");
+            continue;
+        }
+
+        pull.aliases.forEach(alias => {
+            client.aliases.set(alias, pull.name)
+        });
+    }
+});
+
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.devs = ['552103947662524416', "1234567890"]
 client.category = ['ADMIN', 'MODERATOR', 'INFO']
+
 fs.readdirSync("./command/").forEach(dir => {
     const Filter = fs.readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"));
     Filter.forEach(file => {
