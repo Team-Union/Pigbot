@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 
-exports.run = async (client, msg, args, prefix) => {
+exports.run = async (client, message, args, prefix) => {
     let embed = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
       .setColor("BLUE")
       .setTitle("서버정보")
@@ -10,7 +10,7 @@ exports.run = async (client, msg, args, prefix) => {
       .addField("**멤버수:**", `${message.guild.memberCount}`, true)
       .addField("**역할수:**", `${message.guild.roles.cache.size}`, true)
       .setFooter(`꿀꿀봇 |`, bot.user.displayAvatarURL());
-    message.channel.send({ embed: sEmbed });
+    message.channel.send(embed);
 };
 
 
