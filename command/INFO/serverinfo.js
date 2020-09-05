@@ -9,7 +9,7 @@ exports.run = async (client, message, args, prefix) => {
       .addField("**서버 주인:**", `${message.guild.owner}`, true)
       .addField("**멤버수:**", `${message.guild.memberCount}`, true)
       .addField("**역할수:**", `${message.guild.roles.cache.size}`, true)
-      .setFooter(`꿀꿀봇 |`, bot.user.displayAvatarURL());
+      .setFooter(`꿀꿀봇 |`, client.user.displayAvatarURL());
     message.channel.send(embed);
 };
 
