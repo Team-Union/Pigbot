@@ -27,6 +27,7 @@ if(playing){
         }
     });
 }
+}
 exports.config = {
     name: '듣기',
     aliases: ['p', 'play', '듣기', '듣자'],
