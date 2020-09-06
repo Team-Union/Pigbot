@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 exports.run = async (client, msg, args, prefix) => {
   if (!client.devs.includes(msg.author.id))
     return msg.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다."); // bot.js에서 client.devs를 저장한 것을 불러와 포함하지 않으면 해당 메세지로 답변해줍시다.
-
   const coode = args.join(" ");
   const module = 'const Discord = require("discord.js")';
   if (!coode) return msg.reply("실행할 코드를 입력해주세요.");
@@ -39,7 +38,7 @@ exports.run = async (client, msg, args, prefix) => {
 exports.config = {
   name: "코드",
   aliases: ["eval"],
-  category: ["ADMIN"],
+  category: ["관리자"],
   des: ["코드 실행합니다."],
   use: ["ㄲ 코드 <코드>"]
 };
