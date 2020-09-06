@@ -66,7 +66,6 @@ client.on("warn", console.warn);
 client.on("error", console.error);
 client.on("ready", () => {
     console.log(`----------------------------\n \n${client.user.username}로 로그인 하였습니다.\n \n현제 상태 : 온라인\n \n----------------------------\n `)
-    console.log(table.toString());
   client.user
     .setActivity(`ㄲ 도움말 확인`, { type: "PLAYING" })
     .then(presence =>
@@ -74,6 +73,7 @@ client.on("ready", () => {
         `상태를 변경했습니다.\n \n----------------------------`
       )
     )
+    console.log(table.toString());
 })
 
 client.login(config.token)
