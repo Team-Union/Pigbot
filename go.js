@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require('fs')
 const config = require("./config.json")
-
+const { readdirSync } = require("fs");
 client.on("warn", console.warn);
 client.on("error", console.error);
 
@@ -20,7 +20,7 @@ client.on("ready", () => {
 
 const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
 
-fs.readdirSync("./command").forEach(dir => {
+readdirSync("./command").forEach(dir => {
     for (let file of readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"))) {
         let pull = require(`./command/${dir}/${file}`);
 
