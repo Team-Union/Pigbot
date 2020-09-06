@@ -2,7 +2,7 @@
   "name": "godbot",
   "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "go.js",
   "scripts": {
     "test": "node .",
     "start": "node ."
