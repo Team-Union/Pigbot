@@ -1,11 +1,22 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const config = require("./config.json")
+const Discord = require("discord.js")
+const client = new Discord.Client()
+const settings = require("./config/bot.json") //The bot connects using the configuration file
 const { readdirSync } = require("fs");
 const fs = require("fs");
+const { Player } = require("discord-player"); //Create a new Player (Youtube API key is your Youtube Data v3 key)
+const player = new Player(client, settings.youtube_api);
+const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
-const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
+
+client.player = player;
+client.emotes = require("./config/emoji.json");
+client.colors = require("./config/color.json");
+client.commands = new Discord.Collection()
+client.aliases = new Discord.Collection()
+client.devs = ['552103947662524416', "1234567890"]
+client.category = ['관리자', 'MODERATOR', 'INFO']
+
 
 readdirSync("./command").forEach(dir => {
     for (let file of readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"))) {
@@ -24,11 +35,6 @@ readdirSync("./command").forEach(dir => {
         });
     }
 });
-
-client.commands = new Discord.Collection()
-client.aliases = new Discord.Collection()
-client.devs = ['552103947662524416', "1234567890"]
-client.category = ['관리자', 'MODERATOR', 'INFO']
 
 fs.readdirSync("./command/").forEach(dir => {
     const Filter = fs.readdirSync(`./command/${dir}`).filter(f => f.endsWith(".js"));
@@ -76,4 +82,4 @@ client.on("ready", () => {
     console.log(table.toString());
 })
 
-client.login(config.token)
+client.login(settings.token)
