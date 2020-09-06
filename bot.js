@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json")
 const { readdirSync } = require("fs");
+const fs = require("fs");
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
 const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
