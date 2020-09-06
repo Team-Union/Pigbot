@@ -15,7 +15,7 @@ client.colors = require("./config/color.json");
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.devs = ['552103947662524416', "1234567890"]
-client.category = ['관리자', 'MODERATOR', 'INFO']
+client.category = ['관리자', 'MODERATOR', 'INFO','노래']
 
 
 readdirSync("./command").forEach(dir => {
@@ -24,9 +24,9 @@ readdirSync("./command").forEach(dir => {
 
         if (pull.name) {
             client.commands.set(pull.name, pull);
-            table.addRow(file, "✅");
-        } else {
             table.addRow(file, "❌");
+        } else {
+            table.addRow(file, "✅");
             continue;
         }
 
