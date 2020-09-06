@@ -1,6 +1,6 @@
-exports.run = async (client, msg, args, prefix) => {
+exports.run = async (client, message, args, prefix) => {
   if (!client.devs.includes(msg.author.id))
-    return msg.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다.");
+    return message.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다.");
     try {
       await message.channel.send("꿀꿀봇 종료중...");
       process.exit();
