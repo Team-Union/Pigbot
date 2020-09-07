@@ -7,7 +7,6 @@ const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
 
-client.player = player;
 client.emotes = require("./config/emoji.json");
 client.colors = require("./config/color.json");
 client.commands = new Discord.Collection()
