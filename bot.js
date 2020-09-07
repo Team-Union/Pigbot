@@ -3,8 +3,6 @@ const client = new Discord.Client()
 const settings = require("./config/bot.json") //The bot connects using the configuration file
 const { readdirSync } = require("fs");
 const fs = require("fs");
-const { Player } = require("discord-player"); //Create a new Player (Youtube API key is your Youtube Data v3 key)
-const player = new Player(client, settings.youtube_api);
 const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
