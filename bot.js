@@ -79,4 +79,19 @@ client.on("ready", () => {
     console.log(table.toString());
 })
 
+
+
+const { MyBot } = require("koreanbots")
+const Bot = new MyBot("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjg1NzAxNjUzOTg3MzM3MiIsImlhdCI6MTU5Mzc1NDcwMiwiZXhwIjoxNjI1MzEyMzAyfQ.eZGTMfy2Gej6I4Gxakh0UiexMO9YYS3682oZ68cNj09nJ7z5EBh2mCvBmXVBKFeUbXwxb6dk6e29wpW6AVZ4z4BjaW2VcAXqYmqzVpLyNxbwxp4d6yAkA0NjNDcYb_PA6mbaiTy8INqdGJV7fmtBk9fj8DpcRjuVrUxkjs_QWhs")
+ 
+let update = count => Bot.update(count) 
+    .then(res => console.log("서버 수를 정상적으로 업데이트하였습니다!\n반환된 정보:" + JSON.stringify(res)))
+    .catch(console.error)
+  
+client.on("ready", () => {
+  
+    update(client.guilds.cache.size) // 준비 상태를 시작할 때, 최초로 업데이트합니다.
+    setInterval(() => update(client.guilds.cache.size), 600000) // 10분마다 서버 수를 업데이트합니다.
+})
+
 client.login(settings.token)
