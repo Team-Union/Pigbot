@@ -5,6 +5,7 @@ const {discord} = require('discord.js')
 exports.run = async (client, message, args, prefix) => {
   if (!client.devs.includes(message.author.id))
     return message.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다."); // bot.js에서 client.devs를 저장한 것을 불러와 포함하지 않으면 해당 메세지로 답변해줍시다.
+const embed = new MessageEmbed()
 .setTitle('**[오류]**')
 .setDescription(`**[개발자]**${message.author}/${message.author.id}님 앞에 글자를 입력해야죠!`) 
 .setColor("RED")
