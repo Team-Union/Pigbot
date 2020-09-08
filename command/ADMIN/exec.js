@@ -22,3 +22,10 @@ return message.channel.send(embed)
   })
  })
 }
+exports.config = {
+  name: "콘솔",
+  aliases: ["exe", "실행", "콘솔"],
+  category: ["관리자"],
+  des: ["콘솔에서 명령어를 사용가능합니다."],
+  use: ["ㄲ 실행 <명령어>"]
+};
