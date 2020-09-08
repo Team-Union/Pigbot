@@ -24,8 +24,8 @@ return message.channel.send(embed)
        if(err) return m.edit("**``>_``** **|** exec\n```cmd\n"+err+"```");
      
   })
- })
-}
+})
+
 exports.config = {
   name: "콘솔",
   aliases: ["exe", "실행", "콘솔"],
