@@ -1,18 +1,10 @@
 const {MessageEmbed} = require('discord.js')
 const {discord} = require('discord.js')
-module.exports = {
-  name: "공지", 
-      category: "관리자",
-  description: "모든서버에 공지를 보냅니다.",
-  run: async (client, message, args,dev) => {
 
-        const author = dev
-if (!author.includes(message.author.id)) return message.reply({embed:{title:`${client.emojis.cache.find(x=> x.name == "no")}권한을 확인하니, 당신은 \`User(일반유저)\`권한을 가지고잇어요`,description:' **``dev(개발자)``** 권한이 필요합니다',color:"RED"}})
-     
-    
-    
-    
-    
+exports.run = async (client, msg, args, prefix) => {
+if (!client.devs.includes(msg.author.id))
+    return msg.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다."); // bot.js에서 client.devs를 저장한 것을 불러와 포함하지 않으면 해당 메세지로 답변해줍시다.
+
     if (!args.join(" ")) return message.channel.send("내용을 써 주세요!");
 
         message.channel.send(new MessageEmbed().setTitle(`${client.user.username} 공지사항`).setDescription(`\`\`\`\n${args.join(" ")}\n\`\`\``).setColor("RANDOM")).then(async th => {
