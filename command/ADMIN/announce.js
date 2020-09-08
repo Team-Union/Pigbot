@@ -1,9 +1,9 @@
 const {MessageEmbed} = require('discord.js')
 const {discord} = require('discord.js')
 
-exports.run = async (client, msg, args, prefix) => {
-if (!client.devs.includes(msg.author.id))
-    return msg.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다."); // bot.js에서 client.devs를 저장한 것을 불러와 포함하지 않으면 해당 메세지로 답변해줍시다.
+exports.run = async (client, message, args, prefix) => {
+if (!client.devs.includes(message.author.id))
+    return message.reply("이 명령어는 꿀꿀봇 관리자만 사용할 수 있습니다."); // bot.js에서 client.devs를 저장한 것을 불러와 포함하지 않으면 해당 메세지로 답변해줍시다.
 
     if (!args.join(" ")) return message.channel.send("내용을 써 주세요!");
 
@@ -50,3 +50,10 @@ th.edit(new MessageEmbed().setTitle('📡공지가 전송되었습니다.').setC
   
   }
 }
+exports.config = {
+  name: "공지",
+  aliases: ["공지", "보내기", "공지사항"],
+  category: ["관리자"],
+  des: ["공지사항을 보냅니다 실행합니다."],
+  use: ["ㄲ 코드 <코드>"]
+};
