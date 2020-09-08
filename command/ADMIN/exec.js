@@ -11,7 +11,7 @@ const embed = new MessageEmbed()
 .setColor("RED")
 return message.channel.send(embed)
  }
- message.channel.send(`${client.emojis.cache.find(x => x.name == "load2")}`).then((m)=>{
+ message.channel.send(`x`).then((m)=>{
    require('child_process').exec(args.join(" "), (err, out) => {
      out = out.length > 2040 ? out.substring(0, 1080) + '..' : out
 //      err = err.length > 2040 ? err.substring(0, 1080) + '..' : err
