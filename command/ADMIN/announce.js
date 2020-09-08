@@ -44,11 +44,6 @@ th.edit(new MessageEmbed().setTitle('📡공지가 전송되었습니다.').setC
                 }
             })
         })
-    
-  
-  
-  
-  }
 }
 exports.config = {
   name: "공지",
