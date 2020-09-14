@@ -32,7 +32,7 @@ exports.run = async (client, msg, args, prefix) => {
 
 exports.config = {
   name: "네이버랭킹",
-  aliases: ["네이버 랭킹", "네이버실검", "실검"],
+  aliases: ["네이버 랭킹"],
   category: ["INFO"],
   des: ["네이버 랭킹을 불러왔습니다."],
   use: ["ㄲ 네이버랭킹"]

@@ -1,5 +1,5 @@
 
-exports.run = async (client, msg, args, prefix) => {
+exports.run = async (bot, message, args, prefix) => {
     if (message.author.id != "552103947662524416")
       return message.channel.send("꿀꿀봇 관리자가 아닙니다");
 

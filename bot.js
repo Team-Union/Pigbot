@@ -3,10 +3,13 @@ const client = new Discord.Client()
 const settings = require("./config/bot.json") //The bot connects using the configuration file
 const { readdirSync } = require("fs");
 const fs = require("fs");
+const { Player } = require("discord-player"); //Create a new Player (Youtube API key is your Youtube Data v3 key)
+const player = new Player(client, settings.youtube_api);
 const table = (new(require("ascii-table"))).setHeading("Commands", "Status");
 //https://discord.com/api/webhooks/724099546203815996/A00OT58nIAjHNMq64wczZbZ8ASgVBVMDfWiG_PyWRV6T_lzZVfMTpVa77M4QJzFoWcjt
 
 
+client.player = player;
 client.emotes = require("./config/emoji.json");
 client.colors = require("./config/color.json");
 client.commands = new Discord.Collection()
@@ -77,21 +80,6 @@ client.on("ready", () => {
       )
     )
     console.log(table.toString());
-})
-
-
-
-const { MyBot } = require("koreanbots")
-const Bot = new MyBot("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjg1NzAxNjUzOTg3MzM3MiIsImlhdCI6MTU5Mzc1NDcwMiwiZXhwIjoxNjI1MzEyMzAyfQ.eZGTMfy2Gej6I4Gxakh0UiexMO9YYS3682oZ68cNj09nJ7z5EBh2mCvBmXVBKFeUbXwxb6dk6e29wpW6AVZ4z4BjaW2VcAXqYmqzVpLyNxbwxp4d6yAkA0NjNDcYb_PA6mbaiTy8INqdGJV7fmtBk9fj8DpcRjuVrUxkjs_QWhs")
- 
-let update = count => Bot.update(count) 
-    .then(res => console.log("서버 수를 정상적으로 업데이트하였습니다!\n반환된 정보:" + JSON.stringify(res)))
-    .catch(console.error)
-  
-client.on("ready", () => {
-  
-    update(client.guilds.cache.size) // 준비 상태를 시작할 때, 최초로 업데이트합니다.
-    setInterval(() => update(client.guilds.cache.size), 600000) // 10분마다 서버 수를 업데이트합니다.
 })
 
 client.login(settings.token)
