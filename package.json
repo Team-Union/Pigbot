@@ -24,6 +24,7 @@
     "moment-timezone": "^0.5.31",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
+    "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^2.1.0"
   }
