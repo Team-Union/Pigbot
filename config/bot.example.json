@@ -1,4 +1,7 @@
 {
 	"token": "",
-	"youtube_api": ""
+	"youtube_api": "",
+	"shard": {"totalShards": 1, "respawn": true, "token": ""},
+	"prefix": ""
 }
+
