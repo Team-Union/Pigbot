@@ -57,7 +57,7 @@ function runCommand(command, msg, args, prefix) {
     }
 }
 client.on("message", async msg => {
-    const prefix = require("./config/bot.json")
+    const {prefix} = require("./config/bot.json")
     if (msg.author.bot) return;
     if (!msg.content.startsWith(prefix)) return;
     let args = msg.content.slice(prefix.length).trim().split(/ +/g)
