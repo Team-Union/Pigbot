@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-config/bot.js
+config/bot.json
 
 node_modules/
 .vscode/
