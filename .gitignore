@@ -5,3 +5,5 @@ jspm_packages/
 DB/server.json
 DB/user.json
 DB/event.json
+config/.env
+.replit
