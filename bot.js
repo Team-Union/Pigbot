@@ -191,48 +191,6 @@ client.on('ready', () => {
     hook.send(on)*/
 });
 
-client.on('message', async msg => {
-	if (!User[msg.author.id]) {
-		User[msg.author.id] = {
-			level: 1,
-			money: 1000,
-			xp: 0
-		};
-		User.save();
-	}
-	function getRandomInt(min, max) {
-		return Math.floor(Math.random() * (max - min)) + min;
-	}
-	if (!guild[msg.guild.id]) {
-		guild[msg.guild.id] = {
-			gamble: false,
-			leveling: false
-		};
-		guild.save();
-	}
-	if (msg.author.bot) return;
-	if (guild[msg.guild.id].leveling == false) return;
-	User[msg.author.id].xp += getRandomInt(20, 40);
-	User.save();
-	if (User[msg.author.id].xp > User[msg.author.id].level * 1000) {
-		User[msg.author.id].xp = 0;
-		User[msg.author.id].level = User[msg.author.id].level + 1;
 
-		let money = getRandomInt(1000, 10000);
-
-		User[msg.author.id].money = User[msg.author.id].money + money;
-		let levelup = new Discord.MessageEmbed()
-			.setDescription(
-				`***${msg.author.username}***님 ${
-					User[msg.author.id].level
-				}LVL로 레벨업 하였습니다!\n레벨업 보상: ${money}:coin:.`
-			)
-			.setColor('7289DA');
-		msg.reply(levelup);
-
-		// User 저장
-		User.save();
-	}
-});
 
 client.login(process.env.token);
