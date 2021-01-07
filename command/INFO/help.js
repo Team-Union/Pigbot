@@ -49,7 +49,7 @@ exports.run = async (client, msg, args, prefix) => {
 
 exports.config = {
   name: "도움말",
-  aliases: ["도움", "명령어"],
+  aliases: ["도움", "명령어", "ehdna", "ehdna", "help"],
   category: ["INFO"],
   des: ["봇에 대한 명령어 리스트들을 불러와드립니다."],
   use: ["ㄲ 도움말 <명령어>"]

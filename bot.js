@@ -12,7 +12,23 @@ const table = new (require('ascii-table'))().setHeading('명령어', '상태');
 const reload = require('self-reload-json');
 const guild = new reload('./DB/server.json');
 const User = new reload('./DB/user.json');
-
+/*
+client.drawings = new Discord.Collection();
+client.dbs = {};
+let dbs = ['diag', 'money'];
+for (let x of dbs) {
+    client.dbs[x] = new VultrexDB({
+        provider: 'sqlite',
+        table: x,
+        fileName: './assets/index'
+    });
+}
+for (let x in client.dbs) {
+    client.dbs[x].connect().then(() => {
+        console.log(`${x} db connected`);
+    });
+}
+*/
 client.player = player;
 client.emotes = require('./config/emoji.json');
 client.colors = require('./config/color.json');
@@ -69,23 +85,8 @@ client.reloadCommands = async function() {
 	};
 };
 
-fs.appendFile('log.txt', `${client.readyTimestamp}`, function(err) {
-	if (err) {
-		// append failed
-	} else {
-		// done
-	}
-});
 
-//module.exports = require('knex')(
-//    client : 'mysql',
-//    connection: {
-//   	port: '3306'
-//        host: 'piko.app',
-//        user: 'MadeGOD',
-//        password: 'anhgerel2008',
-//        database: 'pigbot'
-//})
+
 readdirSync('./command').forEach(dir => {
 	for (let file of readdirSync(`./command/${dir}`).filter(f =>
 		f.endsWith('.js')
@@ -180,7 +181,7 @@ client.on('ready', () => {
 		client.user.setActivity(activity);
 	}, 5500);
 	console.log(table.toString());
-	/* let on = new Discord.MessageEmbed() // var -> let으로 수정하였습니다.
+	/* let on = new Discord.MessageEmbed()
 	    .setTitle("봇 정보")
 	    .setDescription(`${client.user.username}로 로그인 하였습니다.\n현재 상태 : 온라인`)
         .setTimestamp()

@@ -7,3 +7,4 @@ DB/user.json
 DB/event.json
 config/.env
 .replit
+package-lock.json
