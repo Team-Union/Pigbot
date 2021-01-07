@@ -8,10 +8,9 @@ const { readdirSync } = require('fs');
 const fs = require('fs');
 const { Player } = require('discord-player');
 const player = new Player(client, process.env.youtube_api);
+const WebServer = require('./web.js')
 const table = new (require('ascii-table'))().setHeading('명령어', '상태');
-const reload = require('self-reload-json');
-const guild = new reload('./DB/server.json');
-const User = new reload('./DB/user.json');
+const option = require("./config/bot.json")
 /*
 client.drawings = new Discord.Collection();
 client.dbs = {};
@@ -52,11 +51,11 @@ client.reloadCommands = async function() {
 	for (let key of cache) {
 		delete require.cache[key];
 	}
-	for (let dir of await fss.readdir(path.join(__dirname, 'commands'))) {
-		(await fss.readdir(path.join(__dirname, 'commands', dir)))
+	for (let dir of await fss.readdir(path.join(__dirname, 'command'))) {
+		(await fss.readdir(path.join(__dirname, 'command', dir)))
 			.filter(r => r.endsWith('.js'))
 			.forEach(file => {
-				const cmd = require(path.join(__dirname, 'commands', dir, file)) || {};
+				const cmd = require(path.join(__dirname, 'command', dir, file)) || {};
 				if (!cmd.name) {
 					console.warn(
 						`Command file ${dir}/${file} doesn't have name field. skipping..`
@@ -192,5 +191,5 @@ client.on('ready', () => {
 });
 
 
-
+WebServer.create(client, option);
 client.login(process.env.token);

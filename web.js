@@ -7,6 +7,9 @@ const axios = require('axios');
 const fs = require('fs');
 const Discord = require('discord.js');
 
+module.exports = {
+create: function (client, option) {
+
 app.get('/api/', function (req, res) {
   res.send('{ "message" : "Hello World" }')
 })
@@ -14,11 +17,6 @@ app.get('/api/', function (req, res) {
 app.get('/', function (req, res) {
   res.send('여기왜 옴?')
 }) 
-
-function WebServer(){
-   app.listen(8080, ()=>{console.log("Server is Ready!")});
-}
-
 function avatar (user) {
     if (user.avatar) {
         return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpg?size=2048`;
@@ -33,9 +31,7 @@ function componentToHex (c) {
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
-module.exports = {
-    create: function (client, option) {
-        const server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
             try {
                 if (req.method == 'GET') {
                     var query = url.parse(req.url, true).query;
@@ -223,7 +219,6 @@ module.exports = {
                 `);
             }
         });
-            server.listen(option.port);
             setInterval(() => {
                 axios.get(process.env.WEBSITE).then();
             }, 600000);
@@ -270,7 +265,9 @@ API 지연 시간: ${client.ws.ping}
 </html>
 `;
         }
-    }
-}
 
-module.exports = WebServer;
+app.listen(8080, ()=>{
+  console.log("Server is Ready!")
+});
+}
+}
