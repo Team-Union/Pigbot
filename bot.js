@@ -11,6 +11,7 @@ const player = new Player(client, process.env.youtube_api);
 const WebServer = require('./web.js')
 const table = new (require('ascii-table'))().setHeading('명령어', '상태');
 const option = require("./config/bot.json")
+const path = require("path")
 /*
 client.drawings = new Discord.Collection();
 client.dbs = {};
@@ -52,8 +53,8 @@ client.reloadCommands = async function() {
 	for (let key of cache) {
 		delete require.cache[key];
 	}
-	for (let dir of await fss.readdir(path.join(__dirname, 'command'))) {
-		(await fss.readdir(path.join(__dirname, 'command', dir)))
+	for (let dir of await fs.readdir(path.join(__dirname, 'command'))) {
+		(await fs.readdir(path.join(__dirname, 'command', dir)))
 			.filter(r => r.endsWith('.js'))
 			.forEach(file => {
 				const cmd = require(path.join(__dirname, 'command', dir, file)) || {};
@@ -129,6 +130,8 @@ function runCommand(command, msg, args, prefix) {
 		return;
 	}
 }
+
+
 client.on('message', async msg => {
 	const { prefix } = require('./config/bot.json');
 	if (msg.author.bot) return;
