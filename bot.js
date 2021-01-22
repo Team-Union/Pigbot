@@ -39,6 +39,7 @@ client.devs = [
 	'628595345798201355',
 	'616570697875193866'
 ];
+
 client.category = ['관리자', 'MODERATOR', 'INFO', '노래', '돈 기능', '이벤트'];
 client.reloadCommands = async function() {
 	client.commands.clear();
