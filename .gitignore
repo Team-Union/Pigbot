@@ -8,3 +8,5 @@ DB/event.json
 config/.env
 .replit
 package-lock.json
+config/.ipynb_checkpoints/
+.ipynb_checkpoints/

@@ -4,31 +4,14 @@ const { config } = require('dotenv');
 config({
 	path: __dirname + '/config/.env'
 });
+const option = require("./config/bot.json")
 const { readdirSync } = require('fs');
 const fs = require('fs');
 const { Player } = require('discord-player');
-const player = new Player(client, process.env.youtube_api);
+const player = new Player(client, process.env.youtube_api || option.yt_api);
 const WebServer = require('./web.js')
-const table = new (require('ascii-table'))().setHeading('명령어', '상태');
-const option = require("./config/bot.json")
 const path = require("path")
-/*
-client.drawings = new Discord.Collection();
-client.dbs = {};
-let dbs = ['diag', 'money'];
-for (let x of dbs) {
-    client.dbs[x] = new VultrexDB({
-        provider: 'sqlite',
-        table: x,
-        fileName: './assets/index'
-    });
-}
-for (let x in client.dbs) {
-    client.dbs[x].connect().then(() => {
-        console.log(`${x} db connected`);
-    });
-}
-*/
+
 client.player = player;
 client.emotes = require('./config/emoji.json');
 client.colors = require('./config/color.json');
@@ -87,27 +70,6 @@ client.reloadCommands = async function() {
 };
 
 
-
-readdirSync('./command').forEach(dir => {
-	for (let file of readdirSync(`./command/${dir}`).filter(f =>
-		f.endsWith('.js')
-	)) {
-		let pull = require(`./command/${dir}/${file}`);
-
-		if (pull.name) {
-			client.commands.set(pull.name, pull);
-			table.addRow(file, '❌오류남 ㅅㄱ');
-		} else {
-			table.addRow(file, '✅안정화');
-			continue;
-		}
-
-		pull.aliases.forEach(alias => {
-			client.aliases.set(alias, pull.name);
-		});
-	}
-});
-
 fs.readdirSync('./command/').forEach(dir => {
 	const Filter = fs
 		.readdirSync(`./command/${dir}`)
@@ -148,30 +110,9 @@ client.on('message', async msg => {
 	}
 });
 
-/*client.on('message', async msg => {
-  if (msg.author.bot) return
-  if (msg.channel.type !== "dm") return
-  const Hook = new Discord.WebhookClient(settings.webhook.id, settings.webhook.token)
-  console.log(`${msg.author.tag}(${msg.author.id})\n${msg.content}\n${msg.createdAt}`)
-  msg.react("✅") 
-  let embed = new Discord.MessageEmbed()
-    .setTitle(`문의자 : **${msg.author.tag}** (${msg.author.id})`)
-    .setDescription(`\`ㄲ 답변 ${msg.author.id} [내용]`)
-    .setColor("BLUE")
-    .setFooter("보낸 일")
-    .setTimestamp()
-    .addField("메세지 내용", `${msg.content}`)
- Hook.send('<@552103947662524416>', embed)
-      .catch((e)=>{
-    Hook.send("에러가 발생\n"+e)
-  })
-})
-*/
 client.on('ready', () => {
 	console.log(
-		`----------------------------\n \n${
-			client.user.username
-		}로 로그인 하였습니다.\n \n현재 상태 : 온라인\n \n----------------------------\n `
+		`[System]${client.user.username}로 로그인 하였습니다.`
 	);
 	client.user.setStatus('idle');
 	const botgame = [
@@ -183,17 +124,9 @@ client.on('ready', () => {
 		const activity = botgame[Math.floor(Math.random() * botgame.length)];
 		client.user.setActivity(activity);
 	}, 5500);
-	console.log(table.toString());
-	/* let on = new Discord.MessageEmbed()
-	    .setTitle("봇 정보")
-	    .setDescription(`${client.user.username}로 로그인 하였습니다.\n현재 상태 : 온라인`)
-        .setTimestamp()
-	    .setFooter("가동시간")
-	    .setColor("0x00FF46")
-    const hook = new Discord.WebhookClient('762264612807639091', 'wWJTYmQK2DL-RlVJ8RuPr6rKZsgxo8i7wvH1AtvBrVAq0Bjkn0xOgkVOse6BsBB4PrHe');
-    hook.send(on)*/
+
 });
 
 
 WebServer.create(client, option);
-client.login(process.env.token);
+client.login(process.env.token || option.token);

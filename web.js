@@ -76,7 +76,7 @@ const Discord = require('discord.js');
                     `;
             }
 
-            app.listen(8080, () => {
+            app.listen(5380, () => {
                 console.log("Server is Ready!");
             });
         }
