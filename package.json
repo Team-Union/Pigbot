@@ -28,7 +28,7 @@
     "knex": "^0.21.12",
     "koreanbots": "^2.0.7",
     "lavacord": "1.1.9",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.31",
     "mongoose": "^5.11.10",
     "ms": "^2.1.2",
