@@ -29,7 +29,7 @@
     "koreanbots": "^2.0.7",
     "lavacord": "1.1.9",
     "moment": "^2.27.0",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "mongoose": "^5.11.10",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
